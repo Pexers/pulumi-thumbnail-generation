@@ -1,20 +1,18 @@
 package api
 
 import (
-	"fmt"
-	"net/http"
-	"time"
+	"context"
+	"log"
 )
 
-func Data(w http.ResponseWriter, r *http.Request) {
-	w.Header().Set("Access-Control-Allow-Origin", "*")
-	w.Header().Set("Access-Control-Allow-Methods", "GET")
+// GCSEvent is the payload of a GCS event. Please refer to the docs for
+// additional information regarding GCS events.
+type GCSEvent struct {
+	Bucket string `json:"bucket"`
+	Name   string `json:"name"`
+}
 
-	if r.Method == http.MethodOptions {
-		w.WriteHeader(http.StatusNoContent)
-		return
-	}
-
-	w.Header().Set("Content-Type", "application/json")
-	fmt.Fprintf(w, `{ "now": %d }`, time.Now().UnixNano()/1000000)
+func Data(ctx context.Context, e GCSEvent) error {
+	log.Printf("Processing file: %s", e.Name)
+	return nil
 }

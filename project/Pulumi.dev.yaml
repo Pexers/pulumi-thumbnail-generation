@@ -1,4 +1,5 @@
 config:
+  gcp:credentials: C:\Users\pedro\Desktop\application_default_credentials.json
   gcp:project: meic-tfm1-2021-2022
   gcp:region: europe-west1
   thumbnail-generation:appPath: ./app

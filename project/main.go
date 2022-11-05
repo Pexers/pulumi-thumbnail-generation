@@ -88,8 +88,12 @@ func main() {
 			SourceArchiveObject: appArchive.Name,
 			Runtime:             pulumi.String("go116"),
 			EntryPoint:          pulumi.String("Data"),
-			TriggerHttp:         pulumi.Bool(true),
+			EventTrigger:		 &cloudfunctions.FunctionEventTriggerArgs{
+				EventType:			 pulumi.String("google.storage.object.finalize"),
+				Resource:			 pulumi.String("bucket1sources"),
+			},
 		})
+
 		if err != nil {
 			return err
 		}
