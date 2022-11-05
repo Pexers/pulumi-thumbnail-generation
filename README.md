@@ -1,5 +1,5 @@
 ## Introduction
-An experimental project using **Pulumi** and **Golang** to deploy a serverless function to Google Cloud Platform (GCP). [**Pulumi**](https://www.pulumi.com/) is a modern infrastructure as code (IaC) platform that allows developers to use familiar programming languages and tools to build, deploy, and manage cloud infrastructure.
+An experimental project using **Pulumi** and **Golang** to deploy a serverless use-case to Google Cloud Platform (GCP). [**Pulumi**](https://www.pulumi.com/) is a modern infrastructure as code (IaC) platform that allows developers to use familiar programming languages and tools to build, deploy, and manage cloud infrastructure.
 
 The deployed function implements the use-case described below.
 
