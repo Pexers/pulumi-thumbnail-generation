@@ -11,31 +11,38 @@ The use case starts with the upload of an image file to be persisted in a storag
   <img src="https://user-images.githubusercontent.com/47757441/200130281-8b086d3b-06b6-43c0-864d-bd512cc85f84.jpg" width="700">
 </p>
 
-## Setting up your environment
+### Setting up your environment
 In order to deploy this use-case to Google Cloud Platform, you will first need to install:
 - [Pulumi](https://www.pulumi.com/docs/get-started/install/)
 - [_gcloud_](https://cloud.google.com/sdk/docs/install)
 - [Go](https://go.dev/dl/)
 
-### Deploy a new template project using Pulumi
+This use-case also requires the creation of two buckets (_Bucket1_ & _Bucket2_), one responsible for detecting changes and trigger executions, the second one to store thumbnails. **Don't use the same bucket to detect changes and store thumbnails**, if you do, the cloud function will begin to loop executions indefinitely.
+
+- _Bucket1_ was configured using the `Resource` property from `FunctionEventTriggerArgs`, defined in [_project/main.go_](https://github.com/Pexers/pulumi-thumbnail-generation/blob/main/project/main.go).
+- _Bucket2_ was specified using the `bucket2` variable, defined in [_project/app/main.go_](https://github.com/Pexers/pulumi-thumbnail-generation/blob/main/project/app/main.go)
+
+
+### Pulumi deployment
 1. Inside an empty directory, run the following command to download Pulumi's [_serverless-gcp-go_](https://github.com/pulumi/templates/tree/master/serverless-gcp-go) project template:
 ```
 pulumi new serverless-gcp-go
 ```
-2. Authenticate and obtain GCP credentials by executing the following command:
+2. Replace _main.go_ and _app/main.go_ with the provided source code.
+3. Authenticate and obtain GCP credentials by executing the following command:
 ```
 gcloud auth application-default login
 ```
-3. Run the following command to specify the path to the generated JSON credentials file:
+4. Run the following command to specify the path to the generated JSON credentials file:
 ```
 pulumi config set gcp:credentials <path_to_json_file>
 ```
-4. Once the new project is created and configured, you can deploy it using the following _pulumi_ command:
+5. Deploy the _thumbnail-generation_ use-case using the following _pulumi_ command:
 ```
 pulumi up
 ```
 
 ## References
-- [Pulumi - GCP Configuration](https://www.pulumi.com/registry/packages/gcp/)
+- [Pulumi - GCP Configuration](https://www.pulumi.com/registry/packages/gcp/installation-configuration/#configuration)
 - [Pulumi - GCP Serverless Application](https://www.pulumi.com/templates/serverless-application/gcp/)
 - [Pulumi - Function API](https://www.pulumi.com/registry/packages/gcp/api-docs/cloudfunctions/function/)
