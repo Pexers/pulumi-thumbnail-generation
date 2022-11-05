@@ -2,7 +2,6 @@ package main
 
 import (
 	"fmt"
-
 	"github.com/pulumi/pulumi-gcp/sdk/v6/go/gcp/cloudfunctions"
 	"github.com/pulumi/pulumi-gcp/sdk/v6/go/gcp/storage"
 	synced "github.com/pulumi/pulumi-synced-folder/sdk/go/synced-folder"
