@@ -1,0 +1,7 @@
+config:
+  gcp:project: meic-tfm1-2021-2022
+  gcp:region: europe-west1
+  thumbnail-generation:appPath: ./app
+  thumbnail-generation:errorDocument: error.html
+  thumbnail-generation:indexDocument: index.html
+  thumbnail-generation:sitePath: ./www
