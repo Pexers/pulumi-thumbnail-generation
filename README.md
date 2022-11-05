@@ -18,15 +18,15 @@ In order to deploy this use-case to Google Cloud Platform, you will first need t
 - [Go](https://go.dev/dl/)
 
 ### Deploy a new template project using Pulumi
-1. Inside an empty directory, run the following command to download Pulumi's [_serverless-gcp-go_](https://github.com/pulumi/templates/tree/master/serverless-gcp-go) project template.
+1. Inside an empty directory, run the following command to download Pulumi's [_serverless-gcp-go_](https://github.com/pulumi/templates/tree/master/serverless-gcp-go) project template:
 ```
 pulumi new serverless-gcp-go
 ```
-2. Obtain GCP credentials by executing the following command:
+2. Authenticate and obtain GCP credentials by executing the following command:
 ```
 gcloud auth application-default login
 ```
-3. Specify the path to the generated JSON file using the following _pulumi_ command:
+3. Run the following command to specify the path to the generated JSON credentials file:
 ```
 pulumi config set gcp:credentials <path_to_json_file>
 ```
