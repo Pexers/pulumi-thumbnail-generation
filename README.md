@@ -17,7 +17,7 @@ In order to deploy this use-case to Google Cloud Platform, you will first need t
 - [_gcloud_](https://cloud.google.com/sdk/docs/install)
 - [Go](https://go.dev/dl/)
 
-This use-case also requires the creation of two buckets (_Bucket1_ & _Bucket2_), one responsible for detecting changes and trigger executions, the second one to store thumbnails. **Don't use the same bucket to detect changes and store thumbnails**, if you do, the cloud function will begin to loop executions indefinitely.
+This use-case also requires the creation of two buckets (_Bucket1_ & _Bucket2_), the first one responsible for detecting changes and trigger executions, the second one to store thumbnails. **Don't use the same bucket to detect changes and store thumbnails**, if you do, the cloud function will begin to loop executions indefinitely.
 
 - _Bucket1_ was configured using the `Resource` property from `FunctionEventTriggerArgs`, defined in [_project/main.go_](https://github.com/Pexers/pulumi-thumbnail-generation/blob/main/project/main.go).
 - _Bucket2_ was specified using the `bucket2` variable, defined in [_project/app/main.go_](https://github.com/Pexers/pulumi-thumbnail-generation/blob/main/project/app/main.go)
