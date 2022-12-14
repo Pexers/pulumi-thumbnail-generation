@@ -1,6 +1,10 @@
 ## Introduction
 An experimental project using **Pulumi** and **Golang** to deploy a serverless use-case to Google Cloud Platform (GCP). [**Pulumi**](https://www.pulumi.com/) is a modern infrastructure as code (IaC) platform that allows developers to use familiar programming languages and tools to build, deploy, and manage cloud infrastructure.
 
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/47757441/207642415-0530896a-9803-4360-afda-61a44a8ed439.png" width="170">
+</p>
+
 The deployed function implements the use-case described below.
 
 ## _thumbnail-generation_ use-case
