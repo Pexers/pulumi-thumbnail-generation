@@ -15,7 +15,7 @@ The use case starts with the upload of an image file to be persisted in a storag
   <img src="https://user-images.githubusercontent.com/47757441/200130281-8b086d3b-06b6-43c0-864d-bd512cc85f84.jpg" width="700">
 </p>
 
-### Setting up your environment
+### Setting up the environment
 In order to deploy this use-case to Google Cloud Platform, you will first need to install:
 - [Pulumi](https://www.pulumi.com/docs/get-started/install/)
 - [_gcloud_](https://cloud.google.com/sdk/docs/install)
