@@ -39,7 +39,7 @@ gcloud auth application-default login
 ```
 4. Run the following command to specify the path to the generated JSON credentials file:
 ```
-pulumi config set gcp:credentials <path_to_json_file>
+pulumi config set gcp:credentials JSON_FILE_PATH
 ```
 5. Deploy the _thumbnail-generation_ use-case using the following _pulumi_ command:
 ```
