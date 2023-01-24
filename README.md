@@ -15,17 +15,17 @@ The use case starts with the upload of an image file to be persisted in a storag
   <img src="https://user-images.githubusercontent.com/47757441/200130281-8b086d3b-06b6-43c0-864d-bd512cc85f84.jpg" width="700">
 </p>
 
-### Setting up the environment
-In order to deploy this use-case to Google Cloud Platform, you will first need to install:
-- [Pulumi](https://www.pulumi.com/docs/get-started/install/)
-- [_gcloud_](https://cloud.google.com/sdk/docs/install)
-- [Go](https://go.dev/dl/)
+## Setting up the environment
+- Before deploying the use-case to Google Cloud Platform, you will first need to install:
+  - [Pulumi](https://www.pulumi.com/docs/get-started/install/)
+  - [_gcloud_](https://cloud.google.com/sdk/docs/install) - required for Pulumi to work properly.
+  - [Go](https://go.dev/dl/) - required for compilation.
 
-This use-case also requires the creation of two buckets (_Bucket1_ & _Bucket2_), the first one responsible for detecting changes and trigger executions, the second one to store thumbnails. **Don't use the same bucket to detect changes and store thumbnails**, if you do, the cloud function will begin to loop executions indefinitely.
-
-- _Bucket1_ was configured using the `Resource` property from `FunctionEventTriggerArgs`, defined in [_project/main.go_](https://github.com/Pexers/pulumi-thumbnail-generation/blob/main/project/main.go).
-- _Bucket2_ was specified using the `bucket2` variable, defined in [_project/app/main.go_](https://github.com/Pexers/pulumi-thumbnail-generation/blob/main/project/app/main.go)
-
+- The use-case also requires the creation of two buckets (_Bucket1_ & _Bucket2_). _Bucket1_ detects changes and triggers function executions. _Bucket2_ simply stores new thumbnails.
+  - _Bucket1_ was configured using the `Resource` property from `FunctionEventTriggerArgs`, defined in [_project/main.go_](https://github.com/Pexers/pulumi-thumbnail-generation/blob/main/project/main.go).
+  - _Bucket2_ was specified using the `bucket2` variable, defined in [_project/app/main.go_](https://github.com/Pexers/pulumi-thumbnail-generation/blob/main/project/app/main.go)
+> **Warning**  
+> **Don't use the same bucket for detecting changes and storing thumbnails**. If you do, the cloud function will begin to loop executions.
 
 ### Pulumi deployment
 1. Inside an empty directory, run the following command to download Pulumi's [_serverless-gcp-go_](https://github.com/pulumi/templates/tree/master/serverless-gcp-go) project template:
