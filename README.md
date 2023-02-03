@@ -29,22 +29,22 @@ The use case starts with the upload of an image file to be persisted in a storag
 
 ### Pulumi deployment
 1. Inside an empty directory, run the following command to download Pulumi's [_serverless-gcp-go_](https://github.com/pulumi/templates/tree/master/serverless-gcp-go) project template:
-```
-pulumi new serverless-gcp-go
-```
+  ```sh
+  $ pulumi new serverless-gcp-go
+  ```
 2. Replace _main.go_ and _app/main.go_ with the provided source code.
 3. Authenticate and obtain GCP credentials by executing the following command:
-```
-gcloud auth application-default login
-```
+  ```sh
+  $ gcloud auth application-default login
+  ```
 4. Run the following command to specify the path to the generated JSON credentials file:
-```
-pulumi config set gcp:credentials JSON_FILE_PATH
-```
+  ```
+  $ pulumi config set gcp:credentials JSON_FILE_PATH
+  ```
 5. Deploy the _thumbnail-generation_ use-case using the following _pulumi_ command:
-```
-pulumi up
-```
+  ```
+  $ pulumi up
+  ```
 
 ## References
 - [Pulumi - GCP Configuration](https://www.pulumi.com/registry/packages/gcp/installation-configuration/#configuration)
