@@ -38,11 +38,11 @@ The use case starts with the upload of an image file to be persisted in a storag
   $ gcloud auth application-default login
   ```
 4. Run the following command to specify the path to the generated JSON credentials file:
-  ```
+  ```sh
   $ pulumi config set gcp:credentials JSON_FILE_PATH
   ```
 5. Deploy the _thumbnail-generation_ use-case using the following _pulumi_ command:
-  ```
+  ```sh
   $ pulumi up
   ```
 
