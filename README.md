@@ -22,8 +22,8 @@ The use case starts with the upload of an image file to be persisted in a storag
   - [Go](https://go.dev/dl/) - required for compilation.
 
 - The use-case also requires the creation of two buckets (_Bucket1_ & _Bucket2_). _Bucket1_ detects changes and triggers function executions. _Bucket2_ simply stores new thumbnails.
-  - _Bucket1_ was configured using the `Resource` property from `FunctionEventTriggerArgs`, defined in [_project/main.go_](https://github.com/Pexers/pulumi-thumbnail-generation/blob/main/project/main.go).
-  - _Bucket2_ was specified using the `bucket2` variable, defined in [_project/app/main.go_](https://github.com/Pexers/pulumi-thumbnail-generation/blob/main/project/app/main.go)
+  - _Bucket1_ was configured using the `Resource` property from `FunctionEventTriggerArgs`, defined in [_project/main.go_](project/main.go).
+  - _Bucket2_ was specified using the `bucket2` variable, defined in [_project/app/main.go_](project/app/main.go)
 > **Warning**  
 > **Don't use the same bucket for detecting changes and storing thumbnails**. If you do, the cloud function will begin to loop executions.
 
